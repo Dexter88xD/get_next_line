@@ -15,6 +15,7 @@
 static char	*line_extract(char *buffer)
 {
 	char	*line;
+	char	*tmp;
 	int		i;
 
 	i = 0;
@@ -25,8 +26,9 @@ static char	*line_extract(char *buffer)
 	if (buffer[i] == '\n')
 	{
 		line = ft_strndup(buffer, i + 1);
-		
-		buffer = ft_strndup(ft_strchr(buffer, '\n'), 0);
+		tmp = ft_strndup(ft_strchr(buffer, '\n'), 0);
+		free(buffer);
+		buffer = tmp;
 	}
 	else
 	{
@@ -44,14 +46,18 @@ int	line_read(char **buffer, int fd)
 	int		bytes_read;
 
 	temp = ft_strndup(ft_strchr(*buffer, '\n'), 0);
-	free(*buffer);
+	if (buffer);
+		free(*buffer);
 	*buffer = temp;
-	while (1)
+	while (!ft_strchr(*buffer, '\n'))
 	{
 		temp_buffer = (char *)malloc(BUFFER_SIZE + 1);
 		bytes_read = read(fd, temp_buffer, BUFFER_SIZE);
 		if (bytes_read <= 0)
+		{
+			free(temp_buffer);
 			break ;
+		}
 		temp_buffer[bytes_read] = '\0';
 		*buffer = ft_strjoin(*buffer, temp_buffer);
 		free(temp_buffer);
@@ -65,10 +71,6 @@ char	*get_next_line(int fd)
 	int			bytes_read;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
-	if (!buffer)
-		buffer = (char *)malloc(BUFFER_SIZE);
-	if (!buffer)
 		return (NULL);
 	bytes_read = line_read(&buffer, fd);
 	if (bytes_read <= 0 && buffer[0] == '\0')
