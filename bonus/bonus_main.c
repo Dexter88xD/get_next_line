@@ -21,6 +21,9 @@ int	main(void)
 		free(buffer1);
 		free(buffer2);
 	}
-	
+	if (buffer1)
+		free(buffer1);
+	if (buffer2)
+		free(buffer2);
 	return (0);
 }

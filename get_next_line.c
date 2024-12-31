@@ -6,7 +6,7 @@
 /*   By: sohamdan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 09:03:49 by sohamdan          #+#    #+#             */
-/*   Updated: 2024/12/31 16:26:30 by sohamdan         ###   ########.fr       */
+/*   Updated: 2024/12/31 22:15:16 by sohamdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	line_read(char **buffer, int fd)
 	char	*temp;
 	char	*temp_buffer;
 	int		bytes_read;
-	
+
 	temp = ft_strndup(ft_strchr(*buffer, '\n'), 0);
 	free(*buffer);
 	*buffer = temp;
