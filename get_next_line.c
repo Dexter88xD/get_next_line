@@ -12,29 +12,24 @@
 
 #include "get_next_line.h"
 
-static char	*line_extract(char *buffer)
+static char	*line_extract(char **buffer)
 {
 	char	*line;
-	char	*tmp;
 	int		i;
 
 	i = 0;
-	if (!buffer)
+	line = NULL;
+	if (!(*buffer))
 		return (NULL);
-	while (buffer && buffer[i] != '\n')
+	while (*buffer && (*buffer)[i] != '\n')
 		i++;
-	if (buffer[i] == '\n')
-	{
-		line = ft_strndup(buffer, i + 1);
-		tmp = ft_strndup(ft_strchr(buffer, '\n'), 0);
-		free(buffer);
-		buffer = tmp;
-	}
+	if ((*buffer)[i] == '\n')
+		line = ft_strndup(*buffer, i + 1);
 	else
 	{
-		line = ft_strndup(buffer, 0);
-		free(buffer);
-		buffer = NULL;
+		line = ft_strndup(*buffer, 0);
+		free(*buffer);
+		*buffer = NULL;
 	}
 	return (line);
 }
@@ -44,10 +39,9 @@ int	line_read(char **buffer, int fd)
 	char	*temp;
 	char	*temp_buffer;
 	int		bytes_read;
-
+	
 	temp = ft_strndup(ft_strchr(*buffer, '\n'), 0);
-	if (buffer);
-		free(*buffer);
+	free(*buffer);
 	*buffer = temp;
 	while (!ft_strchr(*buffer, '\n'))
 	{
@@ -74,6 +68,10 @@ char	*get_next_line(int fd)
 		return (NULL);
 	bytes_read = line_read(&buffer, fd);
 	if (bytes_read <= 0 && buffer[0] == '\0')
+	{
+		free(buffer);
+		buffer = NULL;
 		return (NULL);
-	return (line_extract(buffer));
+	}
+	return (line_extract(&buffer));
 }
