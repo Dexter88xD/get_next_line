@@ -114,7 +114,7 @@ int	line_read(char **buffer, int fd)
 	char	*temp;
 	char	*temp_buffer;
 	int		bytes_read;
-	
+
 	temp = ft_strndup(ft_strchr(*buffer, '\n'), 0);
 	free(*buffer);
 	*buffer = temp;

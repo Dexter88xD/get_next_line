@@ -13,6 +13,5 @@ int	main(void)
 		printf("%s", buffer);
 		free(buffer);
 	}
-	
 	return (0);
 }
