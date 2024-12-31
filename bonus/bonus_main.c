@@ -25,5 +25,7 @@ int	main(void)
 		free(buffer1);
 	if (buffer2)
 		free(buffer2);
+	close(fd1);
+	close(fd2);
 	return (0);
 }
