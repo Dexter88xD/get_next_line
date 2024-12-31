@@ -74,6 +74,8 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	while (s[i])
 	{
 		if (s[i] == (unsigned char)c)
@@ -88,6 +90,7 @@ char	*ft_strchr(const char *s, int c)
 static char	*line_extract(char *buffer)
 {
 	char	*line;
+	char	*tmp;
 	int		i;
 
 	i = 0;
@@ -98,7 +101,9 @@ static char	*line_extract(char *buffer)
 	if (buffer[i] == '\n')
 	{
 		line = ft_strndup(buffer, i + 1);
-		buffer = ft_strndup(ft_strchr(buffer, '\n'), 0);
+		tmp = ft_strndup(ft_strchr(buffer, '\n'), 0);
+		free(buffer);
+		buffer = tmp;
 	}
 	else
 	{
@@ -116,14 +121,18 @@ int	line_read(char **buffer, int fd)
 	int		bytes_read;
 
 	temp = ft_strndup(ft_strchr(*buffer, '\n'), 0);
-	free(*buffer);
+	if (*buffer)
+		free(*buffer);
 	*buffer = temp;
-	while (1)
+	while (!ft_strchr(*buffer, '\n'))
 	{
 		temp_buffer = (char *)malloc(BUFFER_SIZE + 1);
 		bytes_read = read(fd, temp_buffer, BUFFER_SIZE);
 		if (bytes_read <= 0)
+		{
+			free(temp_buffer);
 			break ;
+		}
 		temp_buffer[bytes_read] = '\0';
 		*buffer = ft_strjoin(*buffer, temp_buffer);
 		free(temp_buffer);
@@ -134,30 +143,30 @@ int	line_read(char **buffer, int fd)
 char	*get_next_line(int fd)
 {
 	static char	*buffer;
+	char		*line;
 	int			bytes_read;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	if (!buffer)
-		buffer = (char *)malloc(BUFFER_SIZE);
 	bytes_read = line_read(&buffer, fd);
-	if (bytes_read < 0 || (bytes_read == 0 && buffer[0] == '\0'))
+	if (bytes_read <= 0 && buffer[0] == '\0')
 		return (NULL);
-	return (line_extract(buffer));
+	line = line_extract(buffer);
+	return (line);
 }
 
 int	main(void)
 {
 	int		fd;
-	char	*buffer;
+	char	*toz;
 
 	fd = open("alphabet.txt", O_RDWR);
 	if (fd == -1)
 		return (1);
-	while ((buffer = get_next_line(fd)) != NULL)
+	while ((toz = get_next_line(fd)) != NULL)
 	{
-		printf("%s", buffer);
-		free(buffer);
+		printf("%s", toz);
+		free(toz);
 	}
 	
 	return (0);
