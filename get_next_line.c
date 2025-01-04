@@ -6,7 +6,7 @@
 /*   By: sohamdan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 09:03:49 by sohamdan          #+#    #+#             */
-/*   Updated: 2025/01/04 12:24:54 by sohamdan         ###   ########.fr       */
+/*   Updated: 2025/01/04 22:30:58 by sohamdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,13 @@ char	*get_next_line(int fd)
 	if (!buffer)
 		buffer = NULL;
 	bytes_read = line_read(&buffer, fd);
-	if (bytes_read <= 0 && (!buffer || buffer[0] == '\0'))
+	if (bytes_read == -1)
+	{
+		free(buffer);
+		buffer = NULL;
+		return (NULL);
+	}	
+	else if (bytes_read <= 0 && (!buffer || buffer[0] == '\0'))
 	{
 		free(buffer);
 		buffer = NULL;
