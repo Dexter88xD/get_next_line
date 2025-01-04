@@ -17,6 +17,11 @@
 #  define BUFFER_SIZE 42
 # endif
 
+# if BUFFER_SIZE < 0
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE 0
+# endif
+
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
