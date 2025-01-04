@@ -6,7 +6,7 @@
 /*   By: sohamdan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 09:03:49 by sohamdan          #+#    #+#             */
-/*   Updated: 2025/01/04 22:31:52 by sohamdan         ###   ########.fr       */
+/*   Updated: 2025/01/04 22:59:06 by sohamdan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ ssize_t	line_read(char **buffer, int fd)
 	bytes_read = 0;
 	while (!ft_strchr(*buffer, '\n'))
 	{
-		temp_buffer = (char *)malloc(BUFFER_SIZE + 1);
+		temp_buffer = (char *)malloc((size_t)BUFFER_SIZE + 1);
 		if (!temp_buffer)
 			return (-1);
 		bytes_read = read(fd, temp_buffer, BUFFER_SIZE);
