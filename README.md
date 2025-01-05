@@ -1,4 +1,4 @@
-Get Next Line
+# Get Next Line
 
 get_next_line is a C library that provides a convenient function to read lines from a file descriptor. It is especially useful for processing text files line-by-line in a memory-efficient manner.
 Features
