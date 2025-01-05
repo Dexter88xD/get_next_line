@@ -2,6 +2,8 @@
 
 get_next_line is a C library that provides a convenient function to read lines from a file descriptor. It is especially useful for processing text files line-by-line in a memory-efficient manner.
 
+---
+
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
@@ -11,14 +13,20 @@ get_next_line is a C library that provides a convenient function to read lines f
 - [Contributing](#contributing)
 - [License](#license)
 
+---
+
 ## Introduction
 get_next_line is a C function that enables reading a file line-by-line, simplifying text processing tasks. This project is part of the 42 coding school curriculum, focusing on efficient memory and file descriptor management.
+
+---
 
 ## Features
 
 - Reads one line at a time from a file descriptor.
 - Handles multiple file descriptors in the bonus version.
 - Works with files of any size, including large files.
+
+---
 
 ## File Structure
 
@@ -34,6 +42,8 @@ The repository is organised into the following files:
     - get_next_line_bonus.h – Header file for the bonus version.
     - get_next_line_utils_bonus.c – Utility functions supporting the bonus version.
 
+---
+
 ## Installation
 
 To integrate get_next_line into your project:
@@ -44,6 +54,8 @@ To integrate get_next_line into your project:
     #include "get_next_line.h"       // For single file descriptor use.
     #include "get_next_line_bonus.h" // For multi file descriptor support (bonus version).
 ```
+
+---
 
 ## Usage
 
@@ -85,11 +97,16 @@ The library relies on standard C libraries, so no external dependencies are requ
     <string.h>
     <unistd.h>
 ```
+
+---
+
 ## Contributing
 
 Contributions are welcome! Feel free to:
 - Open an issue for bug reports or feature requests.
 - Submit a pull request with your enhancements or fixes.
+
+---
 
 ## License
 
