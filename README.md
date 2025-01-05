@@ -5,7 +5,7 @@ get_next_line is a C library that provides a convenient function to read lines f
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
-- [File Sturcture](#file structure)
+- [File Sturcture](#file_structure)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
