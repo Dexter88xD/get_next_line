@@ -34,15 +34,15 @@
 
 The repository is organised into the following files:
 
-- Core Files:
-    - `get_next_line.c` – Implementation of the get_next_line function.
-    - `get_next_line.h` – Header file containing function prototypes and macros.
-    - `get_next_line_utils.c` – Utility functions supporting get_next_line.
-
-- Bonus Files:
-    - `get_next_line_bonus.c` – Implementation of get_next_line for multiple file descriptors.
-    - `get_next_line_bonus.h` – Header file for the bonus version.
-    - `get_next_line_utils_bonus.c` – Utility functions supporting the bonus version.
+        └── Dexter88xD-get_next_line/
+            ├── README.md
+            ├── LICENSE
+            ├── get_next_line.c
+            ├── get_next_line.h
+            ├── get_next_line_bonus.c
+            ├── get_next_line_bonus.h
+            ├── get_next_line_utils.c
+            └── get_next_line_utils_bonus.c
 
 ---
 
