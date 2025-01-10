@@ -1,6 +1,6 @@
 # Get Next Line
 
-`get_next_line` is a C library that provides a convenient function to read lines from a file descriptor. It is especially useful for processing text files line-by-line in a memory-efficient manner.
+`get_next_line` is a convenient function to read lines from a file descriptor. It is especially useful for processing text files line-by-line in a memory-efficient manner.
 
 ---
 
@@ -114,9 +114,18 @@ int main(void)
 }
 ```
 
-For the **bonus version**, use the same approach to handle multiple file descriptors simultaneously.  
+### Compile and Run
+Compile the program:
+```bash
+gcc -Wall -Wextra -Werror main.c get_next_line.c get_next_line_utils.c -o prog
+```
 
----
+Run the executable to see the formatted output:
+```bash
+./prog
+```
+
+For the **bonus version**, use the same approach to handle multiple file descriptors simultaneously.  
 
 ### **Dependencies**  
 
