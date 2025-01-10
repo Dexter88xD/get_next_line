@@ -46,7 +46,7 @@ The repository is organised into the following files:
 
 ---
 
-### **Installation**
+## **Installation**
 
 To integrate `get_next_line` into your project, follow these steps:
 
@@ -83,7 +83,7 @@ To integrate `get_next_line` into your project, follow these steps:
 
 ---
 
-### **Usage**
+## **Usage**
 
 Here’s an example to demonstrate the use of `get_next_line`:
 
