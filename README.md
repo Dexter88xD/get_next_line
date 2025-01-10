@@ -17,7 +17,7 @@
 
 ## Introduction
 
-`get_next_line` is a versatile C function designed to read files line-by-line in a memory-efficient manner. It simplifies text processing by managing file descriptors and dynamically allocating memory, making it capable of handling files of any size. This project, a staple of the 42 coding school curriculum, emphasises practical solutions for efficient memory and file descriptor management.
+`get_next_line` is a standalone C function designed to read files line by line in a memory-efficient manner. It simplifies text processing by dynamically managing memory and file descriptors, making it capable of handling files of any size. This project, part of the 42 coding school curriculum, emphasises efficient memory usage and practical file handling techniques.
 
 ---
 
