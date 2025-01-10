@@ -33,17 +33,17 @@
 ## File Structure
 
 The repository is organised into the following files:
-
-        └── Dexter88xD-get_next_line/
-            ├── README.md
-            ├── LICENSE
-            ├── get_next_line.c
-            ├── get_next_line.h
-            ├── get_next_line_bonus.c
-            ├── get_next_line_bonus.h
-            ├── get_next_line_utils.c
-            └── get_next_line_utils_bonus.c
-
+```
+└── Dexter88xD-get_next_line/
+        ├── README.md
+        ├── LICENSE
+        ├── get_next_line.c
+        ├── get_next_line.h
+        ├── get_next_line_bonus.c
+        ├── get_next_line_bonus.h
+        ├── get_next_line_utils.c
+        └── get_next_line_utils_bonus.c
+```
 ---
 
 ## **Installation**
